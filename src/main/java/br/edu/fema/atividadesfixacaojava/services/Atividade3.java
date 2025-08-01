@@ -4,20 +4,23 @@ import br.edu.fema.atividadesfixacaojava.model.Aluno;
 import br.edu.fema.atividadesfixacaojava.repository.AlunoRepository;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class Atividade3 implements Atividade {
 
     public List<String> getCompleteName(List<Aluno> alunos) {
-        return alunos.stream().map(aluno -> aluno.getNomeCompleto()).collect(Collectors.toList());
+        return alunos.stream().map(aluno -> aluno.getNomeCompleto()).toList();
     }
 
     public List<LocalDate> getDateBirth(List<Aluno> alunos) {
-        return alunos.stream()
-                .map(aluno -> aluno.getDataNascimento())
-                .map(data -> LocalDate.parse(formatDate(data)))
-                .collect(Collectors.toList());
+        return alunos.stream().map(aluno -> aluno.getDataNascimento()).map(data -> LocalDate.parse(formatDate(data))).toList();
+    }
+
+    public List<Integer> getAge(List<Aluno> alunos) {
+        List<Integer> ages = new ArrayList<>();
+        alunos.forEach(aluno -> ages.add(LocalDate.now().getYear() - Integer.parseInt(aluno.getDataNascimento().split("/")[2])));
+        return ages;
     }
 
     public String formatDate(String date) {
@@ -42,10 +45,9 @@ public class Atividade3 implements Atividade {
         List<Aluno> alunoRepository = AlunoRepository.findAll();
 
         // 1. Nome completo dos alunos
-        System.out.println("Nome dos Alunos: ");
+        System.out.println("Nome completo dos Alunos: ");
         List<String> names = getCompleteName(alunoRepository);
         names.forEach(System.out::println);
-
 
         System.out.println("\n");
 
@@ -54,7 +56,12 @@ public class Atividade3 implements Atividade {
         List<LocalDate> dateBirth = getDateBirth(alunoRepository);
         dateBirth.forEach(System.out::println);
 
+        System.out.println("\n");
+
         // 3. Idade dos alunos sem MAP
+        System.out.println("Idade dos alunos: ");
+        List<Integer> ages = getAge(alunoRepository);
+        ages.forEach(System.out::println);
 
     }
 }

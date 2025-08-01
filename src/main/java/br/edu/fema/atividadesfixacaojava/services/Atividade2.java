@@ -12,6 +12,7 @@ public class Atividade2 implements Atividade {
     private Set<Aluno> alunosRepositorySet;
 
     public void getAlunosRepositorySet() {
+        System.out.println("Lista de alunos: \n");
         this.alunosRepositorySet.forEach(System.out::println);
     }
 

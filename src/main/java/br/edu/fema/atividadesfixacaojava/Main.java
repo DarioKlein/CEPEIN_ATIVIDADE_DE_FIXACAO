@@ -1,9 +1,6 @@
 package br.edu.fema.atividadesfixacaojava;
 
-import br.edu.fema.atividadesfixacaojava.services.Atividade;
-import br.edu.fema.atividadesfixacaojava.services.Atividade1;
-import br.edu.fema.atividadesfixacaojava.services.Atividade2;
-import br.edu.fema.atividadesfixacaojava.services.Atividade3;
+import br.edu.fema.atividadesfixacaojava.services.*;
 
 public class Main {
 

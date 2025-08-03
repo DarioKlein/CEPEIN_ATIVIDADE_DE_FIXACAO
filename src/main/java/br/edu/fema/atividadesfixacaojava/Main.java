@@ -6,7 +6,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Atividade atividade = new Atividade3();
+        Atividade atividade = new Atividade9();
         atividade.result();
     }
 }

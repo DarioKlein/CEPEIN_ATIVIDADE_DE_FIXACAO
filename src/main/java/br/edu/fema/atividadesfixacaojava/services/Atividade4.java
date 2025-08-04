@@ -30,7 +30,8 @@ public class Atividade4 implements Atividade {
     public List<Aluno> getAlunosWithCourse(List<Aluno> alunos) {
         return alunos.stream()
                 .filter(aluno -> aluno.getCurso() != null)
-                .collect(Collectors.toMap(aluno -> aluno.getCurso().getDescricao(), aluno -> aluno, (a1, a2) -> a1)).values().stream().toList();
+                .collect(Collectors.toMap(aluno -> aluno.getCurso().getDescricao(), aluno -> aluno, (a1, a2) -> a1))
+                .values().stream().toList();
     }
 
     public Collection<Aluno> getAlunosStudyMorningAndGreaterThanThirty(List<Aluno> alunos) {

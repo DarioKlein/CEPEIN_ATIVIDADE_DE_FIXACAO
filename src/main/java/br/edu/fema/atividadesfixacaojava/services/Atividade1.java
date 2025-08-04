@@ -3,7 +3,6 @@ package br.edu.fema.atividadesfixacaojava.services;
 import br.edu.fema.atividadesfixacaojava.model.Aluno;
 import br.edu.fema.atividadesfixacaojava.repository.AlunoRepository;
 
-import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;

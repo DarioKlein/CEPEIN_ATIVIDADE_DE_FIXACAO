@@ -13,7 +13,8 @@ public class Atividade7 implements Atividade {
     public List<LocalDateTime> getNewListSortedByRegister(List<Aluno> alunos) {
         return alunos.stream()
                 .map(Aluno::getDataHoraCadastro)
-                .sorted(Comparator.comparing(LocalDateTime::toLocalDate).reversed().thenComparing(LocalDateTime::getHour).thenComparing(LocalDateTime::getMinute))
+                .sorted(Comparator.comparing(LocalDateTime::toLocalDate)
+                        .reversed().thenComparing(LocalDateTime::getHour).thenComparing(LocalDateTime::getMinute))
                 .collect(Collectors.toList());
     }
 
